@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #090227 0%, #290165 25%, #3c00aa 50%, #2c1177 75%, #05001d 100%);
+  overflow: hidden;
+}
+
+#gameCanvas {
+  display: block;
+  border: 2px solid rgb(68, 0, 255);
+  box-shadow: 0 0 30px rgb(146, 57, 255);
+}

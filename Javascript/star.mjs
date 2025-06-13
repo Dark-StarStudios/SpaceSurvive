@@ -1,0 +1,34 @@
+export class Star {
+    constructor(x, y, size) {
+      this.x = x;
+      this.y = y;
+      this.size = size;
+      this.speed = this.size * 0.05; // Smaller stars move slower
+      this.opacity = Math.random() * 0.7 + 0.3; // Random opacity
+      this.twinkleSpeed = Math.random() * 0.05 + 0.01;
+      this.twinkleAngle = Math.random() * Math.PI * 2;
+    }
+  
+    update(canvasHeight) {
+      // Subtle movement for parallax effect
+      this.y += this.speed;
+      
+      // Wrap around when out of bounds
+      if (this.y > canvasHeight + 10) {
+        this.y = -10;
+        this.x = Math.random() * canvasHeight;
+      }
+      
+      // Twinkle effect
+      this.twinkleAngle += this.twinkleSpeed;
+      this.opacity = 0.3 + Math.sin(this.twinkleAngle) * 0.3 + 0.4;
+    }
+  
+    render(ctx) {
+      ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.closePath();
+    }
+  }
