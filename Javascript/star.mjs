@@ -9,19 +9,29 @@ export class Star {
       this.twinkleAngle = Math.random() * Math.PI * 2;
     }
   
-    update(canvasHeight) {
+    update(canvas) {
       // Subtle movement for parallax effect
       this.y += this.speed;
       
       // Wrap around when out of bounds
-      if (this.y > canvasHeight + 10) {
+      if (this.y > canvas.height + 10) {
         this.y = -10;
-        this.x = Math.random() * canvasHeight;
+        this.x = Math.random() * canvas.width;
       }
       
       // Twinkle effect
       this.twinkleAngle += this.twinkleSpeed;
       this.opacity = 0.3 + Math.sin(this.twinkleAngle) * 0.3 + 0.4;
+    }
+
+    static spawn(canvas, stars, amount = 100){
+        for (let i = 0; i < amount; i++) { // Generate 100 stars
+          stars.push(new Star(
+            Math.random() * canvas.width, // Random X position
+            Math.random() * canvas.height, // Random Y position
+            Math.random() * 2 + 0.5 // Random size
+          ));
+        }
     }
   
     render(ctx) {

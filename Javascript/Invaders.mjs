@@ -52,6 +52,7 @@ export class Invader {
     console.log(`Invader updated: x=${this.x}, y=${this.y}, targeting (${this.targetX}, ${this.targetY})`);
   }
 
+  
   render(ctx) {
     // Draw the invader with a glow effect
     // Main body
