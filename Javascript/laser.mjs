@@ -7,7 +7,7 @@ export class Laser {
       this.speedX = Math.cos(angle) * speed;
       this.speedY = Math.sin(angle) * speed;
       this.lifetime = 0;
-      this.maxLifetime = 100;
+      this.maxLifetime = 250;
     }
   
     update() {
@@ -19,8 +19,8 @@ export class Laser {
     render(ctx) {
       ctx.beginPath();
       ctx.moveTo(this.x, this.y);
-      ctx.lineTo(this.x - this.speedX * 5, this.y - this.speedY * 5); // Increased length
-      ctx.strokeStyle = '#ff0000'; // Red color
+      ctx.lineTo(this.x - this.speedX * 2, this.y - this.speedY * 2); // Increased length
+      ctx.strokeStyle = '#00ffff'; // color
       ctx.lineWidth = 3; // Increased width
       ctx.stroke();
       ctx.closePath();
